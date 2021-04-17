@@ -1,0 +1,179 @@
+//
+//  ContentView.swift
+//  CustomTabBarLBTA
+//
+//  Created by Brian Voong on 1/7/21.
+//
+
+import UIKit
+import FirebaseStorage
+import ProgressHUD
+import SwiftUI
+import UIKit
+
+struct ContentView: View {
+    private let storage = Storage.storage().reference()
+    @State private var image = UIImage()
+    @State private var showingImagePicker = false
+    
+    init() {
+        UITabBar.appearance().barTintColor = .systemBackground
+        UINavigationBar.appearance().barTintColor = .systemBackground
+    }
+    
+    @State var selectedIndex = 0
+    @State var shouldShowModal = false
+    @State var numOfCards = 1 //We will need to load all articles to the Array and change this according to the nuber of articles
+    @State var numOfPhotos = 5 //Same as in previous
+    
+    
+    let tabBarImageNames = ["house", "heart", "plus.app.fill", "cube", "person"]
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                Spacer()
+                    .fullScreenCover(isPresented: $showingImagePicker, content: {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                })
+                switch selectedIndex {
+                case 0:
+                    ZStack {
+                        Color(#colorLiteral(red: 0.9682741117, green: 0.9682741117, blue: 0.9682741117, alpha: 1)).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                        VStack (){
+                            Header()
+                            Search()
+                                .padding(.top, 10)
+                            
+                            
+                            VStack(alignment: .leading) {
+                                Text("Beauty Articles")
+                                    .font(.system(size: 22, weight: .bold, design: .serif))
+                                    .foregroundColor(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
+                                
+                                ScrollView (.horizontal) {
+                                    HStack (spacing: 40) {
+                                        ForEach(0..<numOfCards){_ in
+                                       Card()
+                                        }
+                                       
+                                    }
+                                }
+                                .padding(.top, 0)
+                            }
+                            .padding(.leading, 30)
+                            .padding(.bottom,50)
+                            
+                            VStack(alignment: .leading) {
+                                
+                                ScrollView (.vertical) {
+                                    VStack (spacing: 40) {
+                                        
+                                        ForEach(0..<numOfPhotos){_ in
+                                       Photo()
+                                        }
+                                     
+                                    }
+                                }
+                                .padding(.top, 0)
+                            }
+                            .padding(.leading, 0)
+                            
+                        }
+                    }
+                   
+                case 1:
+                    ScrollView {
+                        Text("TEST")
+                    }
+                    
+                case 3:
+                    ScrollView {
+                                  AsyncImage(url: URL(string: UserDefaults.standard.value(forKey: "url") as! String)!,
+                                       placeholder: { Text("Loading ...") },
+                                       image: { Image(uiImage: $0).resizable()})
+                               .frame(idealHeight: UIScreen.main.bounds.width / 3 * 3)
+                        
+                    }
+                    
+                        
+                    
+                    
+                default:
+                    NavigationView {
+                        Text("Remaining tabs")
+                        
+                    }
+                }
+            }
+            
+//            Spacer()
+            
+            Divider()
+                .padding(.bottom, 8)
+            HStack {
+                ForEach(0..<5) { num in
+                    Button(action: {
+                        if num == 2 {
+                            showingImagePicker.toggle()
+                            return
+                        }
+                        
+                        selectedIndex = num
+                    }, label: {
+                        Spacer()
+                        
+                        if num == 2 {
+                            Image(systemName: tabBarImageNames[num])
+                                .font(.system(size: 44, weight: .bold))
+                                .foregroundColor(.red)
+                        } else {
+                            Image(systemName: tabBarImageNames[num])
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 1))
+                        }
+                        Spacer()
+                    })
+                    
+                }
+            }.frame(height: 84)
+            .frame(maxWidth: .infinity)
+            .background(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
+            .cornerRadius(90)
+            
+            
+        }
+    }
+}
+
+
+
+
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
