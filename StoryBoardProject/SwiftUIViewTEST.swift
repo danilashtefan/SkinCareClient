@@ -7,25 +7,33 @@
 
 import UIKit
 import FirebaseStorage
+import Firebase
 import ProgressHUD
 import SwiftUI
 import UIKit
+
+
+class NumberOfCards:ObservableObject{
+    @Published var numOfCards = 1 //We will need to load all articles to the Array and change this according to the nuber of articles
+}
+
+class NumberOfPhotos:ObservableObject{
+    @Published var numOfPhotos = 5 //Same as in previous
+}
 
 struct ContentView: View {
     private let storage = Storage.storage().reference()
     @State private var image = UIImage()
     @State private var showingImagePicker = false
+   
+   
     
-    init() {
-        UITabBar.appearance().barTintColor = .systemBackground
-        UINavigationBar.appearance().barTintColor = .systemBackground
-    }
+    
     
     @State var selectedIndex = 0
     @State var shouldShowModal = false
-    @State var numOfCards = 1 //We will need to load all articles to the Array and change this according to the nuber of articles
-    @State var numOfPhotos = 5 //Same as in previous
-    
+    @StateObject var selfNumOfCards = NumberOfCards()
+    @StateObject var selfNumOfPhotos = NumberOfPhotos()
     
     let tabBarImageNames = ["house", "heart", "plus.app.fill", "cube", "person"]
     
@@ -53,10 +61,9 @@ struct ContentView: View {
                                 
                                 ScrollView (.horizontal) {
                                     HStack (spacing: 40) {
-                                        ForEach(0..<numOfCards){_ in
-                                       Card()
+                                        ForEach(0..<selfNumOfCards.numOfCards){_ in
+                                            Card()
                                         }
-                                       
                                     }
                                 }
                                 .padding(.top, 0)
@@ -69,7 +76,7 @@ struct ContentView: View {
                                 ScrollView (.vertical) {
                                     VStack (spacing: 40) {
                                         
-                                        ForEach(0..<numOfPhotos){_ in
+                                        ForEach(0..<selfNumOfPhotos.numOfPhotos){_ in
                                        Photo()
                                         }
                                      
@@ -91,19 +98,17 @@ struct ContentView: View {
                     ScrollView {
                                   AsyncImage(url: URL(string: UserDefaults.standard.value(forKey: "url") as! String)!,
                                        placeholder: { Text("Loading ...") },
-                                       image: { Image(uiImage: $0).resizable()})
+                                       image: { Image(uiImage: $0).resizable()},
+                                       numOfCards: selfNumOfCards)
                                .frame(idealHeight: UIScreen.main.bounds.width / 3 * 3)
-                        
                     }
                     
                         
                     
                     
                 default:
-                    NavigationView {
-                        Text("Remaining tabs")
-                        
-                    }
+                    NewsView()
+             
                 }
             }
             
@@ -144,7 +149,7 @@ struct ContentView: View {
             
         }
     }
-}
+
 
 
 
@@ -161,19 +166,4 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

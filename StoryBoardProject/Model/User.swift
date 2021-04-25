@@ -26,21 +26,16 @@ struct User: Codable,Equatable {
         if Auth.auth().currentUser != nil{
             if let dictionary = UserDefaults.standard.data(forKey: kCURRENTUSER){
                 let decoder = JSONDecoder()
-                
                 do{
                     let userObject = try decoder.decode(User.self, from:dictionary)
                     return userObject
-                    
                 }catch{
                     print("Error decoding user from dictionary",error.localizedDescription)
-                    
                 }
             }
         }
         return nil
     }
-    
-    
     static func == (lhs:User, rhs:User)->Bool{
         lhs.id==rhs.id
     }

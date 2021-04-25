@@ -18,7 +18,6 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var accountQuestionLabel: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var repeatPswdTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpBtn: UIButton!
     
@@ -38,17 +37,18 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //MARK: -IBActions
     @IBAction func loginBtnPressed(_ sender: Any) {
         
-        let mainView = UIHostingController(rootView: ContentView())
-        mainView.modalPresentationStyle = .fullScreen
-        self.present(mainView, animated: true, completion: nil)
         
-  
+//        let mainView = UIHostingController(rootView: ContentView())
+//        mainView.modalPresentationStyle = .fullScreen
+//        self.present(mainView, animated: true, completion: nil)
+        
+        isLogin ? loginUser() : registerUser()
+       
     }
     
     @IBAction func forgotPswdBtnPressed(_ sender: Any) {
         
         if isDataInputed(type: "password"){
-            
             resetPassword()
             
         }
@@ -80,8 +80,6 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
             
         }
     }
-    
-    
     private func setUpBackgroundTap(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
         view.addGestureRecognizer(tapGesture)
@@ -141,12 +139,6 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //MARK: -Navigation
     
     private func goToApp(){
-        
-        /*let mainView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainView") as! UITabBarController
-        
-        mainView.modalPresentationStyle = .fullScreen
-        self.present(mainView, animated: true, completion: nil)*/
-        
         
         let mainView = UIHostingController(rootView: ContentView())
         mainView.modalPresentationStyle = .fullScreen

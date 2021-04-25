@@ -11,6 +11,17 @@
 		446B94EAD153C9AEBF63DAEE /* Pods_StoryBoardProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650B0C376B103069C309FBC7 /* Pods_StoryBoardProject.framework */; };
 		7076BEDD5E8909DAE74C444F /* Pods_StoryBoardProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1B9742DECC6258A5163E48 /* Pods_StoryBoardProjectTests.framework */; };
 		AB0D6BCC2624ADBC002F3CAC /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D6BCB2624ADBC002F3CAC /* ImageDownloader.swift */; };
+		AB24C96E26344ACD0078768D /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C96D26344ACD0078768D /* NewsResponse.swift */; };
+		AB24C97426344B7D0078768D /* NewsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C97326344B7D0078768D /* NewsEndpoint.swift */; };
+		AB24C97D26344D680078768D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C97C26344D680078768D /* APIKey.swift */; };
+		AB24C98626344FA10078768D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C98526344FA10078768D /* NetworkManager.swift */; };
+		AB24C98C263458200078768D /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C98B263458200078768D /* NewsViewModel.swift */; };
+		AB24C998263460B80078768D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C997263460B80078768D /* APIError.swift */; };
+		AB24C9A3263468360078768D /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24C9A2263468360078768D /* NewsService.swift */; };
+		AB2F438926347192009932DB /* ResultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F438826347192009932DB /* ResultState.swift */; };
+		AB2F438E26347ECA009932DB /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F438D26347ECA009932DB /* ArticleView.swift */; };
+		AB2F439326348386009932DB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F439226348386009932DB /* ErrorView.swift */; };
+		AB2F43982634B0C3009932DB /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2F43972634B0C3009932DB /* NewsView.swift */; };
 		AB32A62226207DCC004E4915 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32A62126207DCC004E4915 /* SwiftUIView.swift */; };
 		AB57933725FC960D006130F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57933625FC960D006130F8 /* AppDelegate.swift */; };
 		AB57933925FC960D006130F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57933825FC960D006130F8 /* SceneDelegate.swift */; };
@@ -58,6 +69,17 @@
 		663496B1CB1036ED6490A707 /* Pods-StoryBoardProject-StoryBoardProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardProject-StoryBoardProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-StoryBoardProject-StoryBoardProjectUITests/Pods-StoryBoardProject-StoryBoardProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8BC80F05A7593EA6569B83BF /* Pods-StoryBoardProject-StoryBoardProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryBoardProject-StoryBoardProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-StoryBoardProject-StoryBoardProjectUITests/Pods-StoryBoardProject-StoryBoardProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB0D6BCB2624ADBC002F3CAC /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		AB24C96D26344ACD0078768D /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
+		AB24C97326344B7D0078768D /* NewsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEndpoint.swift; sourceTree = "<group>"; };
+		AB24C97C26344D680078768D /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		AB24C98526344FA10078768D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AB24C98B263458200078768D /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		AB24C997263460B80078768D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		AB24C9A2263468360078768D /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		AB2F438826347192009932DB /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
+		AB2F438D26347ECA009932DB /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		AB2F439226348386009932DB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		AB2F43972634B0C3009932DB /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		AB32A62126207DCC004E4915 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		AB57933325FC960D006130F8 /* StoryBoardProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB57933625FC960D006130F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +135,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB24C97226344B660078768D /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				AB24C97326344B7D0078768D /* NewsEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		AB24C97B26344D470078768D /* NewsConfig */ = {
+			isa = PBXGroup;
+			children = (
+				AB24C97C26344D680078768D /* APIKey.swift */,
+			);
+			path = NewsConfig;
+			sourceTree = "<group>";
+		};
+		AB24C98426344F8B0078768D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AB24C98526344FA10078768D /* NetworkManager.swift */,
+				AB24C9A2263468360078768D /* NewsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AB24C98A263458020078768D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB24C98B263458200078768D /* NewsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB24C990263458C00078768D /* States */ = {
+			isa = PBXGroup;
+			children = (
+				AB2F438826347192009932DB /* ResultState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		AB24C996263460A80078768D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				AB24C997263460B80078768D /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		AB57932A25FC960D006130F8 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +209,12 @@
 		AB57933525FC960D006130F8 /* StoryBoardProject */ = {
 			isa = PBXGroup;
 			children = (
+				AB24C996263460A80078768D /* Error */,
+				AB24C990263458C00078768D /* States */,
+				AB24C98A263458020078768D /* ViewModel */,
+				AB24C98426344F8B0078768D /* Services */,
+				AB24C97B26344D470078768D /* NewsConfig */,
+				AB24C97226344B660078768D /* Endpoint */,
 				AB80C7FA2622E59500732084 /* ImagePickerSwiftUI.swift */,
 				AB57939725FCAC65006130F8 /* GoogleService-Info.plist */,
 				AB57933625FC960D006130F8 /* AppDelegate.swift */,
@@ -154,6 +231,9 @@
 				AB32A62126207DCC004E4915 /* SwiftUIView.swift */,
 				AB80C7F42621CB3B00732084 /* SwiftUIViewTEST.swift */,
 				AB0D6BCB2624ADBC002F3CAC /* ImageDownloader.swift */,
+				AB2F438D26347ECA009932DB /* ArticleView.swift */,
+				AB2F439226348386009932DB /* ErrorView.swift */,
+				AB2F43972634B0C3009932DB /* NewsView.swift */,
 			);
 			path = StoryBoardProject;
 			sourceTree = "<group>";
@@ -180,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				AB8002AC25FD3EB1002867A3 /* User.swift */,
+				AB24C96D26344ACD0078768D /* NewsResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,14 +546,25 @@
 				ABA3F0AA25FF597500367DAB /* UploadViewController.swift in Sources */,
 				AB80C7F52621CB3B00732084 /* SwiftUIViewTEST.swift in Sources */,
 				AB8002B625FD40DB002867A3 /* Constants.swift in Sources */,
+				AB24C98626344FA10078768D /* NetworkManager.swift in Sources */,
+				AB24C9A3263468360078768D /* NewsService.swift in Sources */,
+				AB24C97D26344D680078768D /* APIKey.swift in Sources */,
 				AB32A62226207DCC004E4915 /* SwiftUIView.swift in Sources */,
+				AB24C998263460B80078768D /* APIError.swift in Sources */,
 				AB8002AD25FD3EB1002867A3 /* User.swift in Sources */,
 				AB57933B25FC960D006130F8 /* LoginViewController.swift in Sources */,
+				AB24C98C263458200078768D /* NewsViewModel.swift in Sources */,
+				AB2F438926347192009932DB /* ResultState.swift in Sources */,
+				AB24C96E26344ACD0078768D /* NewsResponse.swift in Sources */,
 				AB80C7FB2622E59500732084 /* ImagePickerSwiftUI.swift in Sources */,
 				AB57933725FC960D006130F8 /* AppDelegate.swift in Sources */,
 				ABA3F0A525FE12F000367DAB /* FirebaseUserListener.swift in Sources */,
+				AB24C97426344B7D0078768D /* NewsEndpoint.swift in Sources */,
 				AB0D6BCC2624ADBC002F3CAC /* ImageDownloader.swift in Sources */,
+				AB2F438E26347ECA009932DB /* ArticleView.swift in Sources */,
+				AB2F43982634B0C3009932DB /* NewsView.swift in Sources */,
 				AB57933925FC960D006130F8 /* SceneDelegate.swift in Sources */,
+				AB2F439326348386009932DB /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

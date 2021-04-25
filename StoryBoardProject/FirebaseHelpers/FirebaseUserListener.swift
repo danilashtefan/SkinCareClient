@@ -19,7 +19,7 @@ class FirebaseUserListener{
         
         Auth.auth().signIn(withEmail: email, password: password){ (authDataResult, error) in
             
-         
+            print("Current User: \(Auth.auth().currentUser?.uid)")
             
             if error == nil && authDataResult!.user.isEmailVerified{
                 
@@ -73,6 +73,8 @@ class FirebaseUserListener{
             completion(error)
             
         }
+        
+    
     }
     
     

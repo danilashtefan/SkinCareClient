@@ -11,70 +11,26 @@ import UIKit
 import Combine
 
 
-//struct ImageDownloader {
-//
-//
-//    func downloadImage() {
-//
-//        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
-//              let url = URL(string:urlString )else{
-//            return
-//        }
-//
-//
-//        URLSession.shared.dataTask(with: url,completionHandler: { data, _, error in
-//
-//            guard let data = data, error == nil else{
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                let image = UIImage(data:data)
-//            }
-//
-//        })
-//
-//    }
-//}
-
-
-
-
-//class ImageLoader: ObservableObject {
-//    var didChange = PassthroughSubject<Data, Never>()
-//    var data = Data() {
-//        didSet {
-//            didChange.send(data)
-//        }
-//    }
-//
-//    init(urlString:String) {
-//        guard let url = URL(string: urlString) else { return }
-//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data else { return }
-//            DispatchQueue.main.async {
-//                self.data = data
-//            }
-//        }
-//        task.resume()
-//    }
-//}
-
 
 
 struct AsyncImage<Placeholder: View>: View {
     @StateObject private var loader: ImageLoader
+    @ObservedObject var numOfCards:NumberOfCards
+    
     private let placeholder: Placeholder
     private let image: (UIImage) -> Image
     
     init(
         url: URL,
         @ViewBuilder placeholder: () -> Placeholder,
-        @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
+        @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:),
+        numOfCards: NumberOfCards
+        
     ) {
         self.placeholder = placeholder()
         self.image = image
         _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
+        self .numOfCards = numOfCards
     }
     
     var body: some View {
@@ -83,8 +39,10 @@ struct AsyncImage<Placeholder: View>: View {
     }
     
     private var content: some View {
+       
         Group {
             if loader.image != nil {
+                
                 image(loader.image!)
             } else {
                 placeholder
@@ -156,6 +114,7 @@ class ImageLoader: ObservableObject {
     
     private func onFinish() {
         isLoading = false
+        
     }
     
     private func cache(_ image: UIImage?) {

@@ -13,12 +13,6 @@ import SwiftUI
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate {
     
-    
-
-    
-    
-    
-    
     private let storage = Storage.storage().reference()
     
     
