@@ -54,32 +54,33 @@ struct ContentView: View {
 //                               .padding(.top, 10)
 //
                             
-//                            VStack(alignment: .leading) {
-//                                Text("Beauty Articles")
-//                                    .font(.system(size: 22, weight: .bold, design: .serif))
-//                                    .foregroundColor(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
-//
-//                                ScrollView (.horizontal) {
-//                                    HStack (spacing: 40) {
-//                                        ForEach(0..<selfNumOfCards.numOfCards){_ in
-//                                            Card()
-//                                        }
-//                                    }
-//                                }
-//                                .padding(.top, 0)
-//                            }
-//                            .padding(.leading, 30)
-//                            .padding(.bottom,50)
+
+                            VStack(alignment: .leading) {
+                                Text("Beauty Articles")
+                                    .font(.system(size: 22, weight: .bold, design: .serif))
+                                    .foregroundColor(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
+                                
+                                ScrollView (.horizontal) {
+                                    HStack (spacing: 40) {
+                                        ForEach(0..<selfNumOfCards.numOfCards){_ in
+                                            Card()
+                                        }
+                                    }
+                                }
+                                .padding(.top, 0)
+                            }
+                            .padding(.leading, 30)
+                            .padding(.bottom,10)
+
                             
                             VStack(alignment: .leading) {
                                 
                                 ScrollView (.vertical) {
                                     VStack (spacing: 40) {
-                                        
-                                        ForEach(0..<selfNumOfPhotos.numOfPhotos){_ in
-                                       Photo()
-                                        }
-                                     
+                
+                                      AnalysisList()
+                                      ShowMoreButton()
+
                                     }
                                 }
                                 .padding(.top, 0)
