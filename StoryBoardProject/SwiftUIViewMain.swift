@@ -69,17 +69,16 @@ struct ContentView: View {
                                 .padding(.top, 0)
                             }
                             .padding(.leading, 30)
-                            .padding(.bottom,50)
+                            .padding(.bottom,10)
                             
                             VStack(alignment: .leading) {
                                 
                                 ScrollView (.vertical) {
                                     VStack (spacing: 40) {
-                                        
-                                        ForEach(0..<selfNumOfPhotos.numOfPhotos){_ in
-                                       Photo()
-                                        }
-                                     
+                
+                                      AnalysisList()
+                                      ShowMoreButton()
+
                                     }
                                 }
                                 .padding(.top, 0)
