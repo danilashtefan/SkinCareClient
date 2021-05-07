@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 import Firebase
+import Alamofire
 
 
 struct ImagePicker: UIViewControllerRepresentable {
@@ -46,35 +47,78 @@ struct ImagePicker: UIViewControllerRepresentable {
         guard var image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
             return
         }
-        image = self.resizeImage(image: image, targetSize: CGSize(width: 1920.0, height: 1080.0))
+       // image = self.resizeImage(image: image, targetSize: CGSize(width: 600.0, height: 883.0))
         guard let imageData = image.pngData() else{
             return
         }
         
         let storageRef = storage.child("images/file.png")
     
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
         
-        let uploadTask = storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+        let uploadTask = storageRef.putData(imageData, metadata: metadata) { (metadata, error) in
           guard let metadata = metadata else {
             // Uh-oh, an error occurred!
             return
           }
           // Metadata contains file metadata such as size, content-type.
           let size = metadata.size
+            
           // You can also access to download URL after upload.
+            
+        
           storageRef.downloadURL { (url, error) in
             guard let downloadURL = url else {
               // Uh-oh, an error occurred!
               return
             }
-            
+//
             print("Download URL: \(downloadURL)")
             let downloadURLString = downloadURL.absoluteString
-            UserDefaults.standard.set(downloadURLString, forKey: "url")
+            self.uploadToServer(downloadURL: downloadURLString)
+            
           }
         }
     }
         
+        func uploadToServer(downloadURL : String){
+            
+//            let parameters = ["url": "https://media2.s-nbcnews.com/i/newscms/2019_18/1429065/how-to-find-your-skin-type-today-main-002-190424_c9a914b38344e66226253843f3f552bf.jpg"]
+//            AF.request("http://127.0.0.1:5000/process-image", method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
+            
+            // prepare json data
+            let session = URLSession.shared
+            let json: [String: Any] = ["url": downloadURL]
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+            
+            
+         
+            
+            // create post request
+            let url = URL(string: "http://127.0.0.1:5000/process-image")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+            // insert json data to the request
+            request.httpBody = jsonData
+            
+           
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+
+                    print(responseJSON)
+                }
+            }
+            task.resume()
+       }
         
         func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
            let size = image.size

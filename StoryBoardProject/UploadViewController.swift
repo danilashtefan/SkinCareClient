@@ -56,7 +56,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
               // Uh-oh, an error occurred!
               return
             }
+            
             print("Download URL: \(downloadURL)")
+            let downloadURLString = "\(downloadURL)"
+            //self.uploadToServer(downloadURL: downloadURLString)
+            
           }
         }
             
@@ -65,13 +69,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         //save download URL to userDefaults
     }
  
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
-        picker.dismiss(animated: true, completion: nil)
-            
-        
-    }
-    
-    
+  
     //MARK: -IBActions
     
     @IBAction func uploadImageBtnPressed(_ sender: Any) {
@@ -82,8 +80,18 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(picker, animated: true)
             
     }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        picker.dismiss(animated: true, completion: nil)
+            
+        
+    }
+    }
+
     
-}
+    
+  
+    
+
 
 
 

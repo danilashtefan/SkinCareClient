@@ -143,7 +143,7 @@ struct Search: View {
 struct Card:View {
     var body: some View{
         VStack {
-            Image("Geometry")
+            Image("analysis-image")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
            

@@ -23,6 +23,7 @@ pod 'SKPhotoBrowser'
 
 pod 'MessageKit'
 pod 'InputBarAccessoryView'
+pod 'Alamofire', '~> 5.2'
 
 
   target 'StoryBoardProjectTests' do
