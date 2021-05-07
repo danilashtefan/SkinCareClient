@@ -29,7 +29,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                
     }
     
-
     //MARK: UIImagePicker Controller Functions
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
