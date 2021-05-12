@@ -74,10 +74,13 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 
                                 ScrollView (.vertical) {
-                                    VStack (spacing: 40) {
+                                    VStack (spacing: 0) {
                 
                                         AnalysisList(list_size: 2)
-                                      ShowMoreButton()
+                                        ShowMoreButton()
+                                            .padding(.top, 120.0)
+                                            .frame(height: 2.0)
+
 
                                     }
                                 }
@@ -85,6 +88,7 @@ struct ContentView: View {
                             }
                             .padding(.leading, 0)
                             
+
                         }
                     }
                    
@@ -115,6 +119,7 @@ struct ContentView: View {
             
             Divider()
                 .padding(.bottom, 8)
+                .background(Color(#colorLiteral(red: 0.9685322642, green: 0.9686941504, blue: 0.9685109258, alpha: 1)))
             HStack {
                 ForEach(0..<5) { num in
                     Button(action: {
@@ -147,7 +152,9 @@ struct ContentView: View {
             
             
         }
-    }
+        
+    
+}
 
 
 

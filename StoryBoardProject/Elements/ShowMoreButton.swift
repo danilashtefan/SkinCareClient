@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct BlueButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -20,22 +21,21 @@ struct BlueButtonStyle: ButtonStyle {
 
 //TODO navifation is not working
 struct ShowMoreButton: View {
+    
+    @State var isPresented = false
     var body: some View {
-        VStack {
-            NavigationView {
-                NavigationLink( destination: AnalysisList(list_size: 5)){
-        
-                    Button(action: {
-                    }) {
-                        Text("   Click for more   ")
-                            .frame(maxWidth: 140, maxHeight: 24)
-                    }
-                    .buttonStyle(BlueButtonStyle())
+        VStack(alignment: .center) {
+                
+                Button(action: { self.isPresented.toggle()})
+                {
+                    Text("Click for more")
+                        .frame(maxWidth: 145, maxHeight: 24, alignment: .center)
                     
-                }
-            }
-        }
+                }.buttonStyle(BlueButtonStyle())
+                           
+            .sheet(isPresented: $isPresented, content: { AnalysisList(list_size: 5) })
 
+        }
     }
 }
 
