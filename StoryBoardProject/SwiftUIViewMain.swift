@@ -78,7 +78,7 @@ struct ContentView: View {
                                 ScrollView (.vertical) {
                                     VStack (spacing: 40) {
                 
-                                      AnalysisList()
+                                        AnalysisList(list_size: 2)
                                       ShowMoreButton()
 
                                     }
