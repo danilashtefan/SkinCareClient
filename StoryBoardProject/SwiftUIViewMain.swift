@@ -38,6 +38,7 @@ struct ContentView: View {
     let tabBarImageNames = ["house", "heart", "plus.app.fill", "cube", "person"]
     
     var body: some View {
+        NavigationView{
         VStack(spacing: 0) {
             ZStack {
                 Spacer()
@@ -154,7 +155,7 @@ struct ContentView: View {
             
             
         }
-        
+    }
     
 }
 

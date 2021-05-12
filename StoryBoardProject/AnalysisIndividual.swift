@@ -11,13 +11,6 @@ struct AnalysisIndividual: View {
     var body: some View {
         NavigationView{
             VStack{
-                HStack{
-                    NavigationLink(
-                        destination: Text("Destination")){
-                        Image("chevron-left")
-                            .frame(width: 20.0, height: 20.0)
-                    }
-                    .frame(width: 50.0, height: 50.0)
 ////
 //
 //                    //                TODO align more right
@@ -31,12 +24,7 @@ struct AnalysisIndividual: View {
 ////                                .frame(width: 200, height: 50, alignment: .top)
 //
 
-                }.frame(width: 300, height: 100 , alignment: .top)
-                
-                
-            
-                
-                
+                                
                 ScrollView(.horizontal){
                     HStack{
                         Image("analysis-image")
