@@ -13,10 +13,11 @@ struct AnalysisList: View {
         VStack{
             let image_name_string = "analysis-image"
             
-            ForEach(0..<list_size){_ in
-                AnalysisRow(image_name: image_name_string)
-        }
-            
+            ScrollView{
+                ForEach(0..<list_size){_ in
+                    AnalysisRow(image_name: image_name_string)
+                }
+            }
            
         }
     }
@@ -24,6 +25,6 @@ struct AnalysisList: View {
 
 struct AnalysisList_Previews: PreviewProvider {
     static var previews: some View {
-        AnalysisList(list_size: 2)
+        AnalysisList(list_size: 10)
     }
 }

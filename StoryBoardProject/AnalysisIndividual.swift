@@ -18,19 +18,19 @@ struct AnalysisIndividual: View {
                             .frame(width: 20.0, height: 20.0)
                     }
                     .frame(width: 50.0, height: 50.0)
-                    
-                    
-                    //                TODO align more right
-//                                    Text("Redness")
-//                                        .foregroundColor(Color(#colorLiteral(red: 0.1570588052, green: 0.6564927101, blue: 0.8748285174, alpha: 1)))
-//                                        .font(.callout)
-//                                        .alignmentGuide(.leading, computeValue: { dimension in
-//                                            dimension[.trailing]
-//                                        }).padding(.leading, 100)
-//                                }.position(CGPoint(x: 55.0, y: 10.0))
-//                                .frame(width: 200, height: 50, alignment: .top)
-                    
-                    
+////
+//
+//                    //                TODO align more right
+////                                    Text("Redness")
+////                                        .foregroundColor(Color(#colorLiteral(red: 0.1570588052, green: 0.6564927101, blue: 0.8748285174, alpha: 1)))
+////                                        .font(.callout)
+////                                        .alignmentGuide(.leading, computeValue: { dimension in
+////                                            dimension[.trailing]
+////                                        }).padding(.leading, 100)
+////                                }.position(CGPoint(x: 55.0, y: 10.0))
+////                                .frame(width: 200, height: 50, alignment: .top)
+//
+
                 }.frame(width: 300, height: 100 , alignment: .top)
                 
                 
