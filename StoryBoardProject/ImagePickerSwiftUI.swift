@@ -112,12 +112,30 @@ struct ImagePicker: UIViewControllerRepresentable {
                 }
                 let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let responseJSON = responseJSON as? [String: Any] {
-
-                    print(responseJSON)
+                   print(responseJSON["processed_image_url"] as? String)
+                    UserDefaults.standard.set(responseJSON["processed_image_url"] as? String, forKey: "url")
                 }
             }
             task.resume()
        }
+        
+           func convertJsonToString(json: Any, prettyPrinted: Bool = false) -> String {
+            var options: JSONSerialization.WritingOptions = []
+            if prettyPrinted {
+              options = JSONSerialization.WritingOptions.prettyPrinted
+            }
+
+            do {
+              let data = try JSONSerialization.data(withJSONObject: json, options: options)
+              if let string = String(data: data, encoding: String.Encoding.utf8) {
+                return string
+              }
+            } catch {
+              print(error)
+            }
+
+            return ""
+        }
         
         func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
            let size = image.size

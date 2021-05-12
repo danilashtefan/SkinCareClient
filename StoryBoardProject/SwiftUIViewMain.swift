@@ -79,6 +79,7 @@ struct ContentView: View {
                                 ScrollView (.vertical) {
                                     VStack (spacing: 0) {
                 
+
                                         AnalysisList(list_size: 2)
                                         ShowMoreButton()
                                             .padding(.top, 120.0)
