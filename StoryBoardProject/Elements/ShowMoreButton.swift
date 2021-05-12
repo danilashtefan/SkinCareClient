@@ -18,15 +18,24 @@ struct BlueButtonStyle: ButtonStyle {
     }
 }
 
+//TODO navifation is not working
 struct ShowMoreButton: View {
     var body: some View {
         VStack {
-            Button(action: { }) {
-                Text("   Click for more   ")
-                    .frame(maxWidth: 140, maxHeight: 24)
+            NavigationView {
+                NavigationLink( destination: AnalysisList(list_size: 5)){
+        
+                    Button(action: {
+                    }) {
+                        Text("   Click for more   ")
+                            .frame(maxWidth: 140, maxHeight: 24)
+                    }
+                    .buttonStyle(BlueButtonStyle())
+                    
+                }
             }
-            .buttonStyle(BlueButtonStyle())
         }
+
     }
 }
 
