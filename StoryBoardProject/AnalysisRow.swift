@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct AnalysisRow: View {
+    
+    var image_name: String;
+    
     var body: some View {
         ZStack{
             Image("Rectangle")
             HStack{
-                Image("analysis-image")
+                Image(image_name)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 310, height: 62, alignment: .topLeading)
@@ -77,6 +80,7 @@ struct AnalysisRow: View {
 
 struct AnalysisRow_Previews: PreviewProvider {
     static var previews: some View {
-        AnalysisRow()
+        var image_name = "analysis-image"
+        AnalysisRow(image_name: image_name)
     }
 }
