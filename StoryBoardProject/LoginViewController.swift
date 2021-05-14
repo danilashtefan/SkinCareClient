@@ -29,7 +29,6 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional up after loading the view.
         updateUIFor(login: true)
       
     }
