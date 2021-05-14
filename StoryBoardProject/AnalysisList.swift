@@ -12,12 +12,13 @@ struct AnalysisList: View {
     var body: some View {
         VStack{
             let image_name_string = "analysis-image"
-            
+
             ScrollView{
                 ForEach(0..<list_size){_ in
                     AnalysisRow(image_name: image_name_string)
                 }
             }
+            
            
         }
     }

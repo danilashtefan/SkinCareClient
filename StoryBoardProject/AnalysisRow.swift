@@ -21,12 +21,17 @@ struct AnalysisRow: View {
                     .frame(width: 310, height: 62, alignment: .topLeading)
             }.frame(width: 310, height: 120, alignment: .center)
             VStack{
-                Text("Skin analysis 5")
-                    .alignmentGuide(.top, computeValue: { dimension in
-                    dimension[.top]
-                })
-                    .foregroundColor(Color.black)
-                    .font(Font.headline.weight(.bold))
+                NavigationLink(
+                    destination: AnalysisIndividual()){
+                    
+                    Text("Skin analysis 5")
+                        .alignmentGuide(.top, computeValue: { dimension in
+                        dimension[.top]
+                    })
+                        .foregroundColor(Color.black)
+                        .font(Font.headline.weight(.bold))
+                }
+
                 HStack{
                     ZStack{
                         Rectangle()
