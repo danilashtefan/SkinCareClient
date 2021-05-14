@@ -33,7 +33,7 @@ struct ShowMoreButton: View {
                     
                 }.buttonStyle(BlueButtonStyle())
                            
-            .sheet(isPresented: $isPresented, content: { AnalysisList(list_size: 5) })
+            .sheet(isPresented: $isPresented, content: {AnalysisAll() })
 
         }
     }

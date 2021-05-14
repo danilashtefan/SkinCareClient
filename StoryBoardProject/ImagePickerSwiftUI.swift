@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 import UIKit
 import Firebase
-import Alamofire
 
 
 struct ImagePicker: UIViewControllerRepresentable {
