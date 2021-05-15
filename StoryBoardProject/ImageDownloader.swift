@@ -25,7 +25,6 @@ struct AsyncImage<Placeholder: View>: View {
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:),
         numOfCards: NumberOfCards
-        
     ) {
         self.placeholder = placeholder()
         self.image = image
@@ -89,6 +88,7 @@ class ImageLoader: ObservableObject {
 
         if let image = cache?[url] {
             self.image = image
+
             return
         }
         
@@ -113,6 +113,36 @@ class ImageLoader: ObservableObject {
     }
     
     private func onFinish() {
+        //if UserDefaults.standard.object(forKey: "images") != nil{
+//            var imagesUserDefaults = UserDefaults.standard.object(forKey: "images") as! [UIImage] ?? []
+//            imagesUserDefaults.append(image!)
+//            print("Here is what inside the images:")
+//            print(imagesUserDefaults)
+//        let archivedObject = NSKeyedArchiver.archivedData(withRootObject: imagesUserDefaults as NSArray)
+//                UserDefaults.standard.set(archivedObject, forKey: "images")
+//                UserDefaults.standard.synchronize()
+        var counter = UserDefaults.standard.integer(forKey: "imageCounter") ?? 0
+        counter = counter + 1
+        UserDefaults.standard.set(counter, forKey: "imageCounter")
+        
+        do { try ImageStore.store(image: image!, name: "image\(counter)")
+        } catch{
+            print("Error during image storing to local ")
+        }
+        
+        //}
+//        else{
+//            var imagesUserDefaults = Array<UIImage>()
+//            let encodedData = NSKeyedArchiver.archivedData(withRootObject: imagesUserDefaults)
+//            UserDefaults.standard.set(encodedData, forKey: "images")
+//        }
+        print("Print image content")
+        for index in 1...counter {
+            print("The \(index) image is")
+        print(ImageStore.retrieve(imageNamed: "image\(index)"))
+        
+        }
+        
         isLoading = false
         
     }
@@ -132,3 +162,5 @@ extension EnvironmentValues {
         set { self[ImageCacheKey.self] = newValue }
     }
 }
+
+

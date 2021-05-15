@@ -14,8 +14,8 @@ struct AnalysisList: View {
             let image_name_string = "analysis-image"
 
             ScrollView{
-                ForEach(0..<list_size){_ in
-                    AnalysisRow(image_name: image_name_string)
+                ForEach(1..<list_size + 1){i in
+                    AnalysisRow(image_name: "image\(i)", index: i)
                 }
             }
             
