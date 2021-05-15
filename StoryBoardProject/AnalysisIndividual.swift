@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct AnalysisIndividual: View {
+    var image_name : String
+    
+    func retrieveImage(imageNamed name: String) -> UIImage?{
+       return ImageStore.retrieve(imageNamed: name)
+    }
     var body: some View {
         NavigationView{
             VStack{
@@ -27,7 +32,8 @@ struct AnalysisIndividual: View {
                                 
                 ScrollView(.horizontal){
                     HStack{
-                        Image("analysis-image")
+                        var image = retrieveImage(imageNamed: image_name)
+                        Image(uiImage: image!)
                             .resizable()
                             .frame(width: 299, height: 370, alignment: .center)
                         Image("analysis-image")
@@ -72,6 +78,6 @@ struct AnalysisIndividual: View {
 
 struct AnalysisIndividual_Previews: PreviewProvider {
     static var previews: some View {
-        AnalysisIndividual()
+        AnalysisIndividual(image_name: "analysis-image")
     }
 }

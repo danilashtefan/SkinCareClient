@@ -103,11 +103,14 @@ struct ContentView: View {
                     
                 case 3:
                     ScrollView {
-                                 AsyncImage(url: URL(string: UserDefaults.standard.value(forKey: "url") as! String)!,
+                       
+                            AsyncImage(url: URL(string: UserDefaults.standard.value(forKey: "url") as! String)!,
                                        placeholder: { Text("Loading ...") },
                                        image: { Image(uiImage: $0).resizable()},
                                        numOfCards: selfNumOfCards)
                                .frame(idealHeight: UIScreen.main.bounds.width / 3 * 3)
+                       
+                        
                     }
                     
                         

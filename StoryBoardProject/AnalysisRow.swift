@@ -10,21 +10,28 @@ import SwiftUI
 struct AnalysisRow: View {
     
     var image_name: String;
+    var index: Int;
+    
+    func retrieveImage(imageNamed name: String) -> UIImage?{
+       return ImageStore.retrieve(imageNamed: name)
+    }
     
     var body: some View {
         ZStack{
             Image("Rectangle")
             HStack{
-                Image(image_name)
+            var image = retrieveImage(imageNamed: image_name)
+                Image(uiImage: image!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 310, height: 62, alignment: .topLeading)
+                   .frame(width: 310, height: 62, alignment: .topLeading)
+                   .cornerRadius(10)
+                    .padding(.trailing,10)
             }.frame(width: 310, height: 120, alignment: .center)
             VStack{
                 NavigationLink(
-                    destination: AnalysisIndividual()){
-                    
-                    Text("Skin analysis 5")
+                    destination: AnalysisIndividual(image_name: image_name)){
+                    Text("Skin analysis \(index)")
                         .alignmentGuide(.top, computeValue: { dimension in
                         dimension[.top]
                     })
@@ -86,6 +93,8 @@ struct AnalysisRow: View {
 struct AnalysisRow_Previews: PreviewProvider {
     static var previews: some View {
         var image_name = "analysis-image"
-        AnalysisRow(image_name: image_name)
+        AnalysisRow(image_name: image_name,index:1)
     }
 }
+
+
