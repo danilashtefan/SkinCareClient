@@ -43,7 +43,7 @@ News API was chosen for the implementation of the beauty news feed. The MVVP pat
 
 1. `git clone https://github.com/danilashtefan/SkinCareClient.git` 
 2. in the main folder `pod install`
-3. run the project using Xcode simmlator
+3. run the project using Xcode simulator
 
 
 
