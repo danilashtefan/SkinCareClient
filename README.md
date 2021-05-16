@@ -11,5 +11,8 @@ User is able to access application via the email registration. After the email i
 
 # Architecture description
 
+*Log in
+`Google Firebase` was used to implement login and registration functionality. All the users and their encrypted passwords are stored in the `firebase` database
+
 
 
