@@ -1,3 +1,5 @@
+# Swift App
+
 # Introduction
 Skincare feels like a never-ending experiment with a complicated cycle of trial and error. It is well known that skin is an indicator, by monitoring which we can prevent various serious deceases.
 Unfortunately, currently skin problems have no commonly used detection and solution algorithm. However, technological progress provides us with computational resources, which are widespread and powerful and can help us to make a huge step towards the solution of the skincare problem and make the detection of skin issues available from home for everyone.
