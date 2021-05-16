@@ -41,7 +41,7 @@ News API was chosen for the implementation of the beauty news feed. The MVVP pat
 
 ### Architecture Design
 
-![SkinCareArchitecture](https://user-images.githubusercontent.com/57729718/118402772-baff9500-b66b-11eb-935f-448db325ab99.png)
+![image](https://user-images.githubusercontent.com/57729718/118402860-116cd380-b66c-11eb-8079-fe61cdee74f7.png)
 
 
 ## Run for development
