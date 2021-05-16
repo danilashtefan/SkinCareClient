@@ -5,4 +5,4 @@ The goal of the Project Laboratory is to build a neural network for image proces
 In the frames of this Project, the students were  engaged in developing a mobile face care application that will help users to track the state of their skin.
 
 # Functionality description
-User is able to access application 
+User is able to access application via the email registration. After the email is successfully verified
