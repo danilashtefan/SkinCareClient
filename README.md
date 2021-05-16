@@ -11,8 +11,12 @@ User is able to access application via the email registration. After the email i
 
 # Architecture description
 
-*Log in
+* Log in: 
 `Google Firebase` was used to implement login and registration functionality. All the users and their encrypted passwords are stored in the `firebase` database
+
+* Design
+
+First of all SWIFT UIKit was chosen to build the user interface, however, after the thorough investigation design of the project was implemented using the SwiftUI library.
 
 
 
