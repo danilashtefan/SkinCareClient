@@ -53,7 +53,9 @@ News API was chosen for the implementation of the beauty news feed. The MVVP pat
 
 ## Demo
 
-https://media.giphy.com/media/l9Bfiw24mBBIlxIXvW/giphy.gif
+ <p align="center">
+ <img  src="https://media.giphy.com/media/l9Bfiw24mBBIlxIXvW/giphy.gif" width="650" height="350"/></p>
+ </p>  
 
 
 
