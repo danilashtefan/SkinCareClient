@@ -19,9 +19,14 @@ User is able to access application via the email registration. After the email i
 
 First of all SWIFT UIKit was chosen to build the user interface, however, after the thorough investigation design of the project was implemented using the SwiftUI library.
 
-### Server communication a
+### Server communication 
 
-Local Python server (https://github.com/AirinB/SkinTrackingApp )is supposed to be run to let the application work. When user uploads the photo it is initially uploaded to the `Firebse` storage and download link is is sent to the locally running server via the `POST HTTP` request. Server is downloading the image, processes it (it contains AI model trained to detect pimples), uploads to the `Firebase` and sends the processed image download link as a response. After this, the response link is saved to UserDefault. When user clicks to the "box" icon on the navigation bar, processed image is retrieved and shown to him/her.
+Local Python server (https://github.com/AirinB/SkinTrackingApp )is supposed to be run to let the application work. When user uploads the photo it is initially uploaded to the `Firebse` storage and download link is is sent to the locally running server via the `POST HTTP` request. Server is downloading the image, processes it (it contains AI model trained to detect pimples), uploads to the `Firebase` and sends the processed image download link as a response. After this, the response link is saved to UserDefault. When user clicks to the "box" icon on the navigation bar, processed image is retrieved and shown to him/her. Image is saved to the local storage later, and added to the list of the last user analysis.
+
+
+### News API
+
+News API was chosen for the implementation of the beauty news feed. The MVVP pattern is used to implement it:
 
 
 
