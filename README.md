@@ -11,12 +11,17 @@ User is able to access application via the email registration. After the email i
 
 # Architecture description
 
-* Log in: 
+* Log in
+
  The `Google Firebase` was used to implement login and registration functionality. All the users and their encrypted passwords are stored in the `firebase` database
 
 * Design
 
 First of all SWIFT UIKit was chosen to build the user interface, however, after the thorough investigation design of the project was implemented using the SwiftUI library.
+
+* Server communication
+
+Local Python server (https://github.com/AirinB/SkinTrackingApp )is supposed to be run to let the application work. When user uploads the photo it is initially uploaded to the `Firebse` storage and download link is is sent to the locally running server via the `POST HTTP` request. Server is downloading the image, processes it (it contains AI model trained to detect pimples), uploads to the `Firebase`  
 
 
 
