@@ -5,8 +5,14 @@ The goal of the Project Laboratory is to build a neural network for image proces
 In the frames of this Project, the students were  engaged in developing a mobile face care application that will help users to track the state of their skin.
 
 
-# Functionality description
-User is able to access application via the email registration. After the email is successfully verified, user is able to access his profile. On the main page user is able to see some of his previous analysis. Via tapping on it, the page with detailed description is opened. "+" button will open the gallery, from where user will be able to upload on the images for the analysis. User will be able to receive the results later, pressing the "Box" item. Also, "News feed" functionaloty is available for the user, where he can see some articles related to the skincare and beauty topics
+# User stories
+- [ ] User is able to access application via the email registration
+- [ ] After the email is successfully verified, user is able to access his profile
+- [ ] On the main page user is able to see some of his previous analysis. 
+- [ ] Via tapping on the anallysis, the page with detailed description is opened.
+- [ ] User can add a new photo from the gallery for the analysis
+- [ ] User will be able to receive the results later, pressing the "Box" item. 
+- [ ] "News feed" functionaloty is available for the user, where he can see some articles related to the skincare and beauty topics
 
 
 # Architecture description
@@ -19,6 +25,11 @@ User is able to access application via the email registration. After the email i
 
 First of all SWIFT UIKit was chosen to build the user interface, however, after the thorough investigation design of the project was implemented using the SwiftUI library.
 
+![DETAIL Article](https://user-images.githubusercontent.com/27647952/118402185-25630600-b669-11eb-8fa0-0fa0f9b7a398.png)
+![DETAIL PRODUCT](https://user-images.githubusercontent.com/27647952/118402187-272cc980-b669-11eb-8ba2-248d3afc54f8.png)
+![HOME PAGE](https://user-images.githubusercontent.com/27647952/118402190-28f68d00-b669-11eb-9c47-c3fe0a2d8a5e.png)
+
+
 ### Server communication 
 
 Local Python server (https://github.com/AirinB/SkinTrackingApp )is supposed to be run to let the application work. When user uploads the photo it is initially uploaded to the `Firebse` storage and download link is is sent to the locally running server via the `POST HTTP` request. Server is downloading the image, processes it (it contains AI model trained to detect pimples), uploads to the `Firebase` and sends the processed image download link as a response. After this, the response link is saved to UserDefault. When user clicks to the "box" icon on the navigation bar, processed image is retrieved and shown to him/her. Image is saved to the local storage later, and added to the list of the last user analysis.
@@ -27,6 +38,18 @@ Local Python server (https://github.com/AirinB/SkinTrackingApp )is supposed to b
 ### News API
 
 News API was chosen for the implementation of the beauty news feed. The MVVP pattern is used to implement it: View contains ViewModel and ViewModel contains the NewsService, which fires the events when the API call is done. Based on these events ViewModel updates the view. 
+
+## Run for development
+
+1. `git clone https://github.com/danilashtefan/SkinCareClient.git` 
+2. in the main folder `pod install`
+3. run the project using Xcode simmlator
+
+
+
+
+
+
 
 
 
