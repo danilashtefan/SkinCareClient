@@ -26,7 +26,7 @@ Local Python server (https://github.com/AirinB/SkinTrackingApp )is supposed to b
 
 ### News API
 
-News API was chosen for the implementation of the beauty news feed. The MVVP pattern is used to implement it:
+News API was chosen for the implementation of the beauty news feed. The MVVP pattern is used to implement it: View contains ViewModel and ViewModel contains the NewsService, which fires the events when the API call is done. Based on these events ViewModel updates the view. 
 
 
 
