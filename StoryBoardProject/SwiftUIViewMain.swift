@@ -57,9 +57,7 @@ struct ContentView: View {
                             
 
                             VStack(alignment: .leading) {
-                                Text("Beauty Articles")
-                                    .font(.system(size: 22, weight: .bold, design: .serif))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.9762545228, green: 0.6769368052, blue: 0.6951140761, alpha: 1)))
+                                
                                 
                                 ScrollView (.horizontal) {
                                     HStack (spacing: 40) {
